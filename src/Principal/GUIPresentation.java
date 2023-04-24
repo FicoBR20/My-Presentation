@@ -121,6 +121,25 @@ public class GUIPresentation extends JFrame {
 
         @Override
         public void keyTyped(KeyEvent e) {
+            imageLabel.setIcon(null);
+            char ideal = 'm';
+            if (e.getSource()==myExpectations & e.getKeyChar() == ideal){
+
+                expecativesText.setText("\n" +
+                        "Espero aprovechar el curso al maximo a fin de entender\n" +
+                        " a profundidad el manejo de los eventos en la programacion.\n\n\n"+ " Mi contacto " +
+                        "es federico.barbetti@correounivalle.edu.co");
+                expecativesText.setBackground(null);
+                expecativesText.setForeground(Color.BLACK);
+                containerImage.add(expecativesText);
+                revalidate();
+                repaint();
+
+
+
+                }
+
+
 
 
         }
@@ -145,6 +164,7 @@ public class GUIPresentation extends JFrame {
             if (e.getSource()==myHobby & e.getClickCount()>1){
                 this.image = new ImageIcon(getClass().getResource("/Images/MyHobbies.png"));
                 imageLabel.setIcon(image);
+                revalidate();
                 repaint();
 
             }
