@@ -45,7 +45,7 @@ public class GUIPresentation extends JFrame {
 
         containerImage.setBorder(BorderFactory.createTitledBorder(null, "..some about me...",
                 TitledBorder.CENTER, TitledBorder.DEFAULT_JUSTIFICATION,
-                new Font(Font.MONOSPACED, Font.PLAIN, 20), Color.BLACK));
+                new Font(Font.MONOSPACED, Font.BOLD, 36), Color.BLACK));
         containerImage.add(imageLabel);
 
 
@@ -57,9 +57,7 @@ public class GUIPresentation extends JFrame {
         myHobby.addMouseListener(escucha);
         myExpectations.addKeyListener(escucha);
 
-       // myPhoto.addActionListener(listener);
-        //myHobby.addActionListener(listener);
-        //myExpectations.addActionListener(listener);
+
 
         //this refers a JFrame setup
         this.add(title, BorderLayout.NORTH);
@@ -81,40 +79,7 @@ public class GUIPresentation extends JFrame {
         });
     }
 
-    /*
-        private class Listener implements ActionListener{
-            private ImageIcon image;
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //JOptionPane.showMessageDialog(null,"Button pressed");
-
-                // Para limpiar las imageenes del frame se adocopmam estas dps lineas.
-                imageLabel.setIcon(null);
-                containerImage.remove(expecativesText);
-
-                if (e.getSource()==myPhoto){
-                    System.out.println("Photo Button Pressed");
-                    this.image = new ImageIcon(getClass().getResource("/Images/meeandaugther.png"));
-                    imageLabel.setIcon(image);
-                } else if (e.getSource() == myHobby) {
-                    this.image= new ImageIcon(getClass().getResource("/Images/MyHobbies.png"));
-                    imageLabel.setIcon(image);
-                } else {
-                    expecativesText.setText("\n" +
-                            "Espero aprovechar el curso al maximo a fin de entender\n" +
-                            " a profundidad el manejo de los eventos en la programacion.\n\n\n"+ " Mi contacto " +
-                            "es federico.barbetti@correounivalle.edu.co");
-                    expecativesText.setBackground(null);
-                    expecativesText.setForeground(Color.BLACK);
-                    containerImage.add(expecativesText);
-                }
-                revalidate();
-                repaint();
-            }
-
-        }
-    */
     private class Escucha implements MouseListener, KeyListener, ActionListener {
 
         private ImageIcon image;
@@ -126,9 +91,9 @@ public class GUIPresentation extends JFrame {
             if (e.getSource()==myExpectations & e.getKeyChar() == ideal){
 
                 expecativesText.setText("\n" +
-                        "Espero aprovechar el curso al maximo a fin de entender\n" +
-                        " a profundidad el manejo de los eventos en la programacion.\n\n\n"+ " Mi contacto " +
-                        "es federico.barbetti@correounivalle.edu.co");
+                        "I hope to learn and get skills to write java code.\n" +
+                        " in addition shared with my classmate this path.\n\n\n"+ " To keep in touch " +
+                        "please write to federico.barbetti@correounivalle.edu.co \n");
                 expecativesText.setBackground(null);
                 expecativesText.setForeground(Color.BLACK);
                 containerImage.add(expecativesText);
