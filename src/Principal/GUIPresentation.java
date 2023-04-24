@@ -18,10 +18,8 @@ public class GUIPresentation extends JFrame {
 
     private JTextArea expecativesText;
 
-    //CONSTRUCTOR ; Frame general setup; include initGUI function (attributes initials values.
-    // layout, listeners )
 
-    public GUIPresentation() {// Jframe general setup; include initGUI function (initials values
+    public GUIPresentation() {// Jframe general setup; include initGUI method with initials values
         initGUI();
         this.setTitle("My Presentatioin");
         this.setSize(688, 488);
@@ -30,7 +28,7 @@ public class GUIPresentation extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    // fUNCTION INITGUI -> ASSIGN INITIALS VALUES TO ALL ATTRIBUTES, RUN INTO CONSTRUCTOR
+    // Method INITGUI -> ASSIGN INITIALS VALUES TO ALL ATTRIBUTES, RUN INTO CONSTRUCTOR
     private void initGUI() {
         escucha = new Escucha();
         title = new Title("Hi, my name is federico, click at the buttoms to know me a little.", Color.BLUE);
@@ -52,10 +50,12 @@ public class GUIPresentation extends JFrame {
         containerButtons.add(myPhoto);
         containerButtons.add(myHobby);
         containerButtons.add(myExpectations);
+        containerButtons.setFocusable(true);
 
         myPhoto.addMouseListener(escucha);
         myHobby.addMouseListener(escucha);
         myExpectations.addKeyListener(escucha);
+
 
 
 
@@ -97,7 +97,7 @@ public class GUIPresentation extends JFrame {
                 expecativesText.setBackground(null);
                 expecativesText.setForeground(Color.BLACK);
                 containerImage.add(expecativesText);
-                revalidate();
+
                 repaint();
 
 
@@ -123,18 +123,24 @@ public class GUIPresentation extends JFrame {
         @Override
         public void mouseClicked(MouseEvent e) {
             imageLabel.setIcon(null);
-            this.image = new ImageIcon(getClass().getResource("/Images/meeandaugther.png"));
-            imageLabel.setIcon(image);
-            repaint();
-            if (e.getSource()==myHobby & e.getClickCount()>1){
-                this.image = new ImageIcon(getClass().getResource("/Images/MyHobbies.png"));
+            expecativesText.setBackground(null);
+            if (e.getSource()==myPhoto & e.getClickCount()==1){
+                this.image = new ImageIcon(getClass().getResource("/Images/meeandaugther.png"));
                 imageLabel.setIcon(image);
-                revalidate();
                 repaint();
 
             }
 
-            // mensaje.append("mouseClick fue detectado\n");
+            else if (e.getSource()==myHobby & e.getClickCount()>1){
+                imageLabel.setIcon(null);
+                this.image = new ImageIcon(getClass().getResource("/Images/MyHobbies.png"));
+                imageLabel.setIcon(image);
+                containerImage.remove(expecativesText);
+                repaint();
+
+            }
+
+
         }
 
         @Override
@@ -149,13 +155,13 @@ public class GUIPresentation extends JFrame {
 
         @Override
         public void mouseEntered(MouseEvent e) {
-            // panelMouse.setBackground(Color.blue);
+
 
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
-            // panelMouse.setBackground(Color.red);
+
 
         }
 
@@ -164,6 +170,9 @@ public class GUIPresentation extends JFrame {
         public void actionPerformed(ActionEvent e) {
 
         }
+
+
+
     }
 }
 
